@@ -30,16 +30,6 @@ export class ServersComponent implements OnInit {
   }
 
   username = '';
-  canClear = false;
 
-  clearUsername(){
-    this.username = '';
-    this.canClear = false;
-  }
-
-  updateUsername() {
-    this.canClear = true;
-    if (this.username == '') {this.canClear = false;}
-  }
 
 }

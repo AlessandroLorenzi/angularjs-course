@@ -19,6 +19,6 @@
   </div>
 </div>
 
-<input [(ngModel)]="username" (input)="updateUsername()" class="form-control" >
+<input [(ngModel)]="username" class="form-control" >
 <p>{{username}}</p>
-<button class="btn" (click)="clearUsername()" [disabled]="!canClear">- Clear Username</button>
+<button class="btn" (click)="username = '' " [disabled]="username === '' ">- Clear Username</button>
