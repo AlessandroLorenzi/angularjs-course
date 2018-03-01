@@ -18,3 +18,7 @@
     <p>{{createServerStatus}}</p>
   </div>
 </div>
+
+<input [(ngModel)]="username" (input)="updateUsername()" class="form-control" >
+<p>{{username}}</p>
+<button class="btn" (click)="clearUsername()" [disabled]="!canClear">- Clear Username</button>
