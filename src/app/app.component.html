@@ -3,5 +3,9 @@
     <h1>This is the main app</h1>
   </div>
   <app-servers></app-servers>
-  
+
+  <button class="btn btn-primary" (click)="onDisplayDetails()">Display details</button>
+  <p [hidden]="!passwordVisible" >Password: tuna</p>
+  <p *ngFor="let timestamp of timestamps" [ngClass]="{blue : timestamp.counter >= 5}">{{timestamp.date}}</p>
+
 </div>
