@@ -1,3 +1,1 @@
-<div id='col-xs-12'>
-  <p>Server {{serverId}} is {{getServerStatus()}}</p>
-</div>
+  <p [ngStyle]="{backgroundColor: getServerStatusColor()}" >Server {{serverId}} is {{getServerStatus()}}</p>
