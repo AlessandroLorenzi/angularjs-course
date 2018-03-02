@@ -15,10 +15,6 @@
     >+ Add Server</button>
   </div>
   <div class="col-xs-4">
-    <p>{{createServerStatus}}</p>
+    <p *ngIf="serverCreated">Server {{serverName}} is created.</p>
   </div>
 </div>
-
-<input [(ngModel)]="username" class="form-control" >
-<p>{{username}}</p>
-<button class="btn" (click)="username = '' " [disabled]="username === '' ">- Clear Username</button>
