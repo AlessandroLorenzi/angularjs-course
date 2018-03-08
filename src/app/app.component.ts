@@ -6,4 +6,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  section = 'recipes';
+
+  onChangeSection(event){
+    this.section = event;
+  }
 }
