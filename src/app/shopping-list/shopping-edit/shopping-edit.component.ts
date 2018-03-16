@@ -1,4 +1,12 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { 
+  Component, 
+  OnInit, 
+  Output, 
+  EventEmitter,
+  ViewChild,
+  ElementRef
+ } from '@angular/core';
+
 import { Ingredient } from '../../shared/ingredient.model';
 
 @Component({
@@ -8,24 +16,29 @@ import { Ingredient } from '../../shared/ingredient.model';
 })
 export class ShoppingEditComponent implements OnInit {
   @Output() newIngredient = new EventEmitter<Ingredient>();
+  @ViewChild('inputName') nameInputRef : ElementRef;
+  @ViewChild('inputAmount') amountInputRef : ElementRef;
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  resetForm(name, amount) {
-    name.value = '';
-    amount.value = '';
+  resetForm() {
+      this.nameInputRef.nativeElement.value = '';
+      this.amountInputRef.nativeElement.value = '';
   }
 
-  onAddIngredient(name, amount) {
-	this.newIngredient.emit(
-		new Ingredient(
-			name.value, amount.value
+  onAddIngredient() {
+    if ( this.nameInputRef.nativeElement.value === '' ) {return;}
+    if ( this.amountInputRef.nativeElement.value === '' ) {return;}
+	this.newIngredient.emit (
+		new Ingredient (
+			this.nameInputRef.nativeElement.value, 
+            this.amountInputRef.nativeElement.value
 		)
 	);
-    this.resetForm(name, amount);
+    this.resetForm();
   }
 
 }
