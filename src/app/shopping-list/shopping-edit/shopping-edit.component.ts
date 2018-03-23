@@ -8,7 +8,7 @@ import {
  } from '@angular/core';
 
 import { Ingredient } from '../../shared/ingredient.model';
-import { ShoppingService } from '../shopping.service';
+import { ShoppingService } from '../../shared/shopping.service';
 
 @Component({
   selector: 'app-shopping-edit',
