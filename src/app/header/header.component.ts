@@ -1,3 +1,4 @@
+
 import { Component,
          OnInit,
          Output,
@@ -10,12 +11,8 @@ import { Component,
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  @Output() section = new EventEmitter<string>();
   constructor() { }
 
   ngOnInit() {
-  }
-  showSection(section){
-    this.section.emit(section)
   }
 }

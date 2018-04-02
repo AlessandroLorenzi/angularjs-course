@@ -7,13 +7,9 @@ import { ShoppingService } from './shared/shopping.service';
   providers: [ShoppingService]
 })
 export class AppComponent {
-  title = 'app';
-  section = 'recipes';
-
+  title : string = 'app';
+  section : string  = 'recipes';
 
   constructor( private shoppingService : ShoppingService ) { }
 
-  onChangeSection(event){
-    this.section = event;
-  }
 }
