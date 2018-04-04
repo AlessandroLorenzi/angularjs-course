@@ -5,15 +5,16 @@ import { ShoppingService } from '../../shared/shopping.service';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Observable } from 'rxjs/Rx';
 
+
 @Component({
-  selector: 'app-recipe-detail',
-  templateUrl: './recipe-detail.component.html',
-  styleUrls: ['./recipe-detail.component.css']
+  selector: 'app-recipe-edit',
+  templateUrl: './recipe-edit.component.html',
+  styleUrls: ['./recipe-edit.component.css']
 })
-export class RecipeDetailComponent implements OnInit {
-  //recipe : Observable<Recipe>;
-  recipe :  Recipe ;
-  id : number;
+export class RecipeEditComponent implements OnInit {
+  id: number;
+  editMode = false;
+  recipe: Recipe; 
 
   constructor(
       private route: ActivatedRoute,
@@ -21,17 +22,22 @@ export class RecipeDetailComponent implements OnInit {
       private shoppingService : ShoppingService  
   ) { }
 
+
+
   ngOnInit() {
      this.route.params.subscribe (
        (params: Params) => {
          this.id = + params['id'];
+         this.editMode = params['id'] != null;
          this.recipe =  this.recipeService.getRecipe(this.id);
        }
      )
   }
 
-  onAddShoppingList(){
-     this.shoppingService.addIngredients(this.recipe.ingredients);
+  onSave(){
   }
+
+
+
 
 }
