@@ -27,11 +27,14 @@ export class ShoppingService {
   }
 
   public addIngredients(ingredients : Ingredient[]){
-	this.ingredients = this.ingredients.concat(ingredients);
+    this.ingredients = this.ingredients.concat(ingredients);
     this.ingredientsChanged.next(this.getIngredients());
   }
 
-
+  public updateIngredient(index: number, ingredient: Ingredient){
+    this.ingredients[index] = ingredient
+    this.ingredientsChanged.next(this.getIngredients());
+  }
 
 
 
