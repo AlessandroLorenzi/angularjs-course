@@ -12,6 +12,7 @@
             class="form-control"
             name="name"
             ngModel
+            required
           >
         </div>
 
@@ -23,12 +24,16 @@
             class="form-control"
             name="amount"
             ngModel
+            required
+            pattern="^[1-9]+[0-9]*$"
           >
         </div>
       </div>
       <div class="row">
         <div class="col-xs-1-12">
-          <button type="submit" class="btn btn-success">Add Ingredient</button>
+          <button type="submit" class="btn btn-success"
+            [disabled]="!f.valid"
+          >Add Ingredient</button>
           <button type="button" class="btn btn-danger">Delete Ingredient</button>
           <button type="button" class="btn btn-primary" (click)="resetForm()">Clear Ingredient</button>
         </div>
