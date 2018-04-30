@@ -17,6 +17,9 @@ export class ShoppingService {
   public getIngredients() {
     return this.ingredients.slice();
   }
+  public getIngredient(index){
+    return this.ingredients[index];
+  }
 
   public addIngredient(ingredient : Ingredient){
 	this.ingredients.push(ingredient);
@@ -27,6 +30,8 @@ export class ShoppingService {
 	this.ingredients = this.ingredients.concat(ingredients);
     this.ingredientsChanged.next(this.getIngredients());
   }
+
+
 
 
 
